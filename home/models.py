@@ -22,3 +22,14 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name+" "+str (self.time)
+
+
+class Review(models.Model):
+    sno = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=40)
+    email = models.CharField(max_length=50)
+    review = models.TextField()
+    image = models.FileField(upload_to='static/reviewimg',default = 'static/reviewimg/no-img.jpg')
+
+    def __str__(self):
+        return self.name+" "+self.review

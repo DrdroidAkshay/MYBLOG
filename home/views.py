@@ -1,12 +1,15 @@
 import math
 
 from django.shortcuts import render, HttpResponse
-from home.models import Blog, Contact
+from home.models import Blog, Contact, Review
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    reviews = Review.objects.all()
+    print(reviews)
+    context={'reviews':reviews}
+    return render(request, 'index.html', context)
 def blog(request):
     no_of_posts=3
     page=request.GET.get('page')
@@ -48,3 +51,17 @@ def blogpost(request,slug):
     return render(request, 'blogpost.html',context)
 def search(request):
     return render(request, 'search.html')
+
+def review(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        text = request.POST.get('review')
+        image = request.FILES['image']
+        print(image.name,image.size)
+        instance = Review(name=name,email=email,review=text, image=image)
+        instance.save()
+
+    reviews = Review.objects.all()
+    context = {'reviews': reviews}
+    return render(request, 'index.html', context)
