@@ -1,13 +1,30 @@
 {% extends 'base.html' %}
 {% block title %} Akshay {% endblock title %}
 {% block blogactive %}active{% endblock %}
-
+{% block mycss %}
+<style>
+  .cardcontainer{
+  max-width:60%;
+  margin-bottom:16px
+  }
+  @media only screen and (max-width: 600px) {
+  /* For mobile: */
+  .cardcontainer{
+  max-width:80%;
+  margin-bottom:40px
+  }
+  .button{
+  padding:22px
+  }
+}
+</style>
+{% endblock %}
 {% block body %}
 <h3 class="text-center my-4">Postcards from Venus</h3>
 
-<div style="min-height:70vh;padding-bottom:30px">
+<div class="" style="min-height:70vh;padding-bottom:30px">
 {% for blog in blogs %}
-<div class="container mb-3" style="max-width:800px;">
+<div class="container cardcontainer " style="">
 <div class="row g-0 bg-light">
   <div class="col-md-6 mb-md-0 p-md-4" style="height:200px;width:365px">
     <img src="https://source.unsplash.com/250x100/?{{blog.title}},{{blog.title}}" class="w-100" alt="..." style="height:100%;width:100%">
