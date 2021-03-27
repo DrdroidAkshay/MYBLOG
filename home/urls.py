@@ -10,4 +10,5 @@ urlpatterns = [
     path('contact', views.contact, name="blog"),
     path('search', views.search, name="search"),
     path('review', views.review, name="review"),
+    path('leather', views.leather, name="leather"),
 ]

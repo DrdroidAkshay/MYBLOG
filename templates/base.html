@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/aos.css">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/tinymce/4.5.6/jquery.tinymce.min.js"></script>
 
-    
     <title>{% block title %}{% endblock title %}</title>
     {% block mycss %} {% endblock mycss %}
   </head>
@@ -50,6 +50,7 @@
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
+<!--  Google map wouldn't work without below script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
@@ -57,48 +58,49 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
     -->
-  <script>
-// Detect request animation frame
-var scroll = window.requestAnimationFrame ||
-             // IE Fallback
-             function(callback){ window.setTimeout(callback, 1000/60)};
-var elementsToShow = document.querySelectorAll('.show-on-scroll');
+<!--  <script>-->
+<!--// Detect request animation frame-->
+<!--var scroll = window.requestAnimationFrame ||-->
+<!--             // IE Fallback-->
+<!--             function(callback){ window.setTimeout(callback, 1000/60)};-->
+<!--var elementsToShow = document.querySelectorAll('.show-on-scroll');-->
 
-function loop() {
+<!--function loop() {-->
 
-    Array.prototype.forEach.call(elementsToShow, function(element){
-      if (isElementInViewport(element)) {
-        element.classList.add('is-visible');
-      } else {
-        element.classList.remove('is-visible');
-      }
-    });
+<!--    Array.prototype.forEach.call(elementsToShow, function(element){-->
+<!--      if (isElementInViewport(element)) {-->
+<!--        element.classList.add('is-visible');-->
+<!--      } else {-->
+<!--        element.classList.remove('is-visible');-->
+<!--      }-->
+<!--    });-->
 
-    scroll(loop);
-}
+<!--    scroll(loop);-->
+<!--}-->
 
-// Call the loop for the first time
-loop();
+<!--// Call the loop for the first time-->
+<!--loop();-->
 
-// Helper function from: http://stackoverflow.com/a/7557433/274826
-function isElementInViewport(el) {
-  // special bonus for those using jQuery
-  if (typeof jQuery === "function" && el instanceof jQuery) {
-    el = el[0];
-  }
-  var rect = el.getBoundingClientRect();
-  return (
-    (rect.top <= 0
-      && rect.bottom >= 0)
-    ||
-    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight))
-    ||
-    (rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))
-  );
-}
-</script>
+<!--// Helper function from: http://stackoverflow.com/a/7557433/274826-->
+<!--function isElementInViewport(el) {-->
+<!--  // special bonus for those using jQuery-->
+<!--  if (typeof jQuery === "function" && el instanceof jQuery) {-->
+<!--    el = el[0];-->
+<!--  }-->
+<!--  var rect = el.getBoundingClientRect();-->
+<!--  return (-->
+<!--    (rect.top <= 0-->
+<!--      && rect.bottom >= 0)-->
+<!--    ||-->
+<!--    (rect.bottom >= (window.innerHeight || document.documentElement.clientHeight) &&-->
+<!--      rect.top <= (window.innerHeight || document.documentElement.clientHeight))-->
+<!--    ||-->
+<!--    (rect.top >= 0 &&-->
+<!--      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight))-->
+<!--  );-->
+<!--}-->
+<!--</script>-->
   <script src="https://kit.fontawesome.com/8d501b0414.js" crossorigin="anonymous"></script>
+
   </body>
 </html>

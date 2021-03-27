@@ -1,13 +1,12 @@
 import math
 
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from home.models import Blog, Contact, Review
 
 
 # Create your views here.
 def home(request):
     reviews = Review.objects.all()
-    print(reviews)
     context={'reviews':reviews}
     return render(request, 'index.html', context)
 def blog(request):
@@ -62,6 +61,10 @@ def review(request):
         instance = Review(name=name,email=email,review=text, image=image)
         instance.save()
 
-    reviews = Review.objects.all()
-    context = {'reviews': reviews}
-    return render(request, 'index.html', context)
+    # reviews = Review.objects.all()
+    # context = {'reviews': reviews}
+    # return render(request, 'index.html', context)
+    return redirect("/")
+
+def leather(request):
+    return render(request, 'leather.html')
